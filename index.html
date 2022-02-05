@@ -1,0 +1,41 @@
+<html>
+<style>
+canvas {
+    background:rgb(255, 255, 255);
+}
+</style>
+<input id="gotomeeting" type="text" /><button onclick="draw()">Generate Image</button><br/>
+
+
+
+<canvas id="idCanvas" width="860" height="380"></canvas>
+
+<script>
+
+
+function draw() {
+
+var canvas = document.getElementById('idCanvas');
+var context = canvas.getContext('2d');
+
+var imageObj = new Image();
+
+
+imageObj.onload = function() {
+context.drawImage(imageObj, 0, 0);
+context.font = "18px Sans-serif";
+context.fillStyle = "black";
+context.fillText(document.getElementById('gotomeeting').value, 50, 350);
+
+var canvas = document.getElementById('idCanvas');
+var dataURL = canvas.toDataURL();
+
+//alert(dataURL);
+}
+imageObj.setAttribute('crossOrigin', 'anonymous');
+imageObj.src = "sap1.png";
+};
+
+</script>
+</html>
+
