@@ -1,0 +1,46 @@
+<html>
+<style>
+canvas {
+    background:rgb(255, 255, 255);
+}
+</style>
+<input id="time" type="text" /><br/>
+<input id="gotomeeting" type="text" />
+<button onclick="draw()">Generate Image</button><br/>
+
+
+
+<canvas id="idCanvas" width="2400" height="3536"></canvas>
+
+<script>
+
+
+function draw() {
+
+var canvas = document.getElementById('idCanvas');
+var context = canvas.getContext('2d');
+
+var imageObj = new Image();
+
+
+imageObj.onload = function() {
+context.drawImage(imageObj, 0, 0);
+context.font = "120px Sans-serif";
+context.fillStyle = "black";
+context.fillText(document.getElementById('time').value, 50, 2700);
+context.fillText(document.getElementById('gotomeeting').value, 50, 3100);
+
+
+
+var canvas = document.getElementById('idCanvas');
+var dataURL = canvas.toDataURL();
+
+//alert(dataURL);
+}
+imageObj.setAttribute('crossOrigin', 'anonymous');
+imageObj.src = "sapinsta.png";
+};
+
+</script>
+</html>
+
